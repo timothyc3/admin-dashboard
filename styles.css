@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template:
+    [header-start] "sidebar header" 4fr [header-end]
+    [main-start] "sidebar main" 16fr [main-end]
+    / minmax(200px, 1.5fr) 8fr;
+}
+
+.sidebar {
+    background-color: cornflowerblue;
+    grid-area: sidebar;
+}
+
+.sidebar .logo-panel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 10px 20px 0 0;
+}
+
+.sidebar .logo-panel > * {
+    color: white;
+}
+
+.sidebar  .logo-panel ion-icon {
+    font-size: clamp(15px, 4vw, 70px);
+    justify-self: center;
+}
+
+.sidebar .logo-panel h1 {
+    align-self: center;
+    font-size: clamp(15px, 2vw, 50px);
+
+}
+
+.sidebar .sidebar-menu ul {
+    margin-top: 25px;
+}
+
+.sidebar .sidebar-menu ul li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: lightslategrey;
+    width: auto;
+    height: 50px;
+    padding-left: 25px;
+    padding-right: clamp(40px, 50%, 200px);
+}
+
+.sidebar .sidebar-menu ul li:hover {
+    background-color: lightgrey;
+}
+
+.sidebar .sidebar-menu ul li > * {
+    color: white;
+    place-self: center;
+}
+
+.sidebar .sidebar-menu ul li ion-icon {
+    font-size: clamp(10px, 2vw, 100px);
+}
+
+.sidebar .sidebar-menu ul li h2 {
+    font-size: clamp(10px, 2vw, 25px);
+}
+
+.header {
+    background-color: white;
+    grid-area: header;
+}
+
+.main {
+    background: grey;
+    grid-area: main;
+}
