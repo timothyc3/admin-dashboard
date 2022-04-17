@@ -117,10 +117,13 @@ body {
     height: 40%;
 }
 
-.header .search ion-icon {
+.header .search label {
+    margin-left: auto;
+}
+
+.header .search label ion-icon {
     font-size: var(--ion-icon-font);
     margin-right: 10px;
-    margin-left: auto;
 }
 
 .header .search input {
