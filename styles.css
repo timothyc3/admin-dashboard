@@ -1,41 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: grid;
     grid-template:
-    [header-start] "sidebar header" 4fr [header-end]
-    [main-start] "sidebar main" 16fr [main-end]
-    / minmax(200px, 1.5fr) 8fr;
+    [header-start] "sidebar header" 5fr [header-end]
+    [main-start] "sidebar main" 15fr [main-end]
+    / minmax(200px, 1.2fr) 8fr;
 }
 
 .sidebar {
-    background-color: cornflowerblue;
+    background-color: #0D002B;
     grid-area: sidebar;
+}
+
+.sidebar * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 .sidebar .logo-panel {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 10px 20px 0 0;
+    padding: 15px 20px 0 0;
 }
 
 .sidebar .logo-panel > * {
     color: white;
 }
 
-.sidebar  .logo-panel ion-icon {
-    font-size: clamp(15px, 4vw, 70px);
+.sidebar .logo-panel ion-icon {
+    font-size: clamp(15px, 4vw, 40px);
     justify-self: center;
 }
 
 .sidebar .logo-panel h1 {
     align-self: center;
-    font-size: clamp(15px, 2vw, 50px);
+    font-size: clamp(15px, 2vw, 25px);
 
 }
 
@@ -45,16 +55,21 @@ body {
 
 .sidebar .sidebar-menu ul li {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: lightslategrey;
-    width: auto;
-    height: 50px;
+    grid-template-columns: auto 1fr;
+    gap: clamp(10px, 15%, 30px);
+    width: 60%;
+    height: 60px;
     padding-left: 25px;
     padding-right: clamp(40px, 50%, 200px);
+    transition: background-color 0.5s;
+}
+
+.sidebar .sidebar-menu ul li:nth-child(6){
+    margin-bottom: clamp(10px, 10vh - 20px, 120px);
 }
 
 .sidebar .sidebar-menu ul li:hover {
-    background-color: lightgrey;
+    background-color: #140043;
 }
 
 .sidebar .sidebar-menu ul li > * {
@@ -63,16 +78,105 @@ body {
 }
 
 .sidebar .sidebar-menu ul li ion-icon {
-    font-size: clamp(10px, 2vw, 100px);
+    font-size: clamp(10px, 2vw, 20px);
 }
 
 .sidebar .sidebar-menu ul li h2 {
-    font-size: clamp(10px, 2vw, 25px);
+    font-size: clamp(10px, 2vw, 20px);
+    justify-self: start;
 }
 
 .header {
+    --ion-icon-font: 25px;
+    --section-gap: clamp(10px, 10%, 30px);
+
     background-color: white;
     grid-area: header;
+    display: grid;
+    grid-template:
+    [top-row-start] "search-bar login-widget" 1fr [top-row-end]
+    [bottom-row-start] "profile button-panel" 2fr [bottom-row-end]
+    / 2fr 1fr;
+}
+
+.header * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.header > .search {
+    grid-area: search-bar;
+    display: flex;
+    align-items: center;
+    padding-right: var(--section-gap);
+}
+
+.header .search > * {
+    height: 40%;
+}
+
+.header .search ion-icon {
+    font-size: var(--ion-icon-font);
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.header .search input {
+    box-sizing: border-box;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    background-color: #dee0de;
+    padding-left: 15px;
+}
+
+.header .login-widget {
+    display: flex;
+    height: 100%;
+    place-items: center;
+    justify-content: end;
+    gap: var(--section-gap);
+    padding-right: max(20% - 30px, 5px);
+}
+
+.header .login-widget ion-icon {
+    font-size: var(--ion-icon-font);
+    flex-shrink: 0;
+}
+
+.header .login-widget ion-icon:hover {
+    color: grey;
+}
+
+.header .login-widget img {
+    box-sizing: border-box;
+    height: auto;
+    width: 50px;
+    background-color: grey;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.header h1 {
+    box-sizing: border-box;
+    width: 40%;
+    padding: 5px;
+    font-size: clamp(16px, 1vw, 50px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.header .button-panel {
+    grid-area: button-panel;
+    background-color: lightgrey;
+}
+
+.header .profile .test {
+    background-color: green;
+    height: 100%;
 }
 
 .main {
