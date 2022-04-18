@@ -11,14 +11,16 @@ body {
     width: 100vw;
     display: grid;
     grid-template:
-    [header-start] "sidebar header" 5fr [header-end]
-    [main-start] "sidebar main" 15fr [main-end]
+    [header-start] "sidebar header" 3fr [header-end]
+    [main-start] "sidebar main" 17fr [main-end]
     / minmax(200px, 1.2fr) 8fr;
 }
 
 .sidebar {
     background-color: #0D002B;
     grid-area: sidebar;
+    position: relative;
+    z-index: 3;
 }
 
 .sidebar * {
@@ -54,13 +56,13 @@ body {
 }
 
 .sidebar .sidebar-menu ul li {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: clamp(10px, 15%, 30px);
-    width: 60%;
     height: 60px;
     padding-left: 25px;
-    padding-right: clamp(40px, 50%, 200px);
+    padding-right: clamp(40px, 40%, 200px);
     transition: background-color 0.5s;
 }
 
@@ -78,7 +80,7 @@ body {
 }
 
 .sidebar .sidebar-menu ul li ion-icon {
-    font-size: clamp(10px, 2vw, 20px);
+    font-size: clamp(16px, 3vw, 24px);
 }
 
 .sidebar .sidebar-menu ul li h2 {
@@ -89,14 +91,23 @@ body {
 .header {
     --ion-icon-font: 25px;
     --section-gap: clamp(10px, 10%, 30px);
+    --main-font-size: clamp(16px, 1vw, 50px);
+    --header-left-margin: 10%;
 
     background-color: white;
+    box-sizing: border-box;
     grid-area: header;
     display: grid;
     grid-template:
-    [top-row-start] "search-bar login-widget" 1fr [top-row-end]
-    [bottom-row-start] "profile button-panel" 2fr [bottom-row-end]
+    [top-row-start] "search-bar login-widget" 2fr [top-row-end]
+    [bottom-row-start] "profile button-panel" 3fr [bottom-row-end]
     / 2fr 1fr;
+    padding-top: calc(clamp(5px, 2vh, 20px)/2);
+    padding-bottom: clamp(5px, 2vh, 20px);
+    row-gap: calc(clamp(5px, 2vh, 20px)/2);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 -5px 15px 0 black;
 }
 
 .header * {
@@ -109,16 +120,18 @@ body {
 .header > .search {
     grid-area: search-bar;
     display: flex;
-    align-items: center;
+    place-items: center;
     padding-right: var(--section-gap);
 }
 
 .header .search > * {
-    height: 40%;
+    height: 60%;
 }
 
 .header .search label {
-    margin-left: auto;
+    margin-left: var(--header-left-margin);
+    display: flex;
+    align-items: center;
 }
 
 .header .search label ion-icon {
@@ -153,7 +166,8 @@ body {
     color: grey;
 }
 
-.header .login-widget img {
+.header .login-widget img,
+.header .profile img {
     box-sizing: border-box;
     height: auto;
     width: 50px;
@@ -162,27 +176,59 @@ body {
     border-radius: 50%;
 }
 
-.header h1 {
+.header .login-widget img {
+    width: 40px
+}
+
+.header .login-widget h1 {
     box-sizing: border-box;
     width: 40%;
     padding: 5px;
-    font-size: clamp(16px, 1vw, 50px);
+    font-size: var(--main-font-size);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.header .button-panel {
-    grid-area: button-panel;
-    background-color: lightgrey;
+.header .profile {
+    display: flex;
+    align-items: center;
+    padding-right: var(--section-gap);
 }
 
-.header .profile .test {
-    background-color: green;
-    height: 100%;
+.header .profile img {
+    width: 60px;
+    grid-area: profile-pic;
+    justify-self: center;
+    margin-left: var(--header-left-margin);
+}
+
+.header .profile .message {
+    padding-left: clamp(15px, 3vw, 50px);
+    width: 80%;
+}
+
+.header .profile .message > * {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.header .profile .message h2 {
+    grid-area: welcome-message;
+    font-size: var(--main-font-size);
+}
+
+.header .profile .message h1 {
+    grid-area: name;
+    font-size: calc(var(--main-font-size) * 1.5);
+}
+
+.header .button-panel {
+    grid-area: button-panel;
 }
 
 .main {
-    background: grey;
+    background: white;
     grid-area: main;
 }
