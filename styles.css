@@ -7,13 +7,14 @@
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
     display: grid;
     grid-template:
     [header-start] "sidebar header" 3fr [header-end]
     [main-start] "sidebar main" 17fr [main-end]
     / minmax(200px, 1.2fr) 8fr;
+    overflow: hidden;
 }
 
 .sidebar {
@@ -243,7 +244,7 @@ body {
 
 .header .button-panel ul li {
     background-color: cornflowerblue;
-    padding: 10px 20px;
+    padding: 10px clamp(20px, 2vw ,30px);
     border-radius: 10px;
     color: white;
     font-weight: bold;
@@ -252,4 +253,37 @@ body {
 .main {
     background: #dee0de;
     grid-area: main;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    overflow: scroll;
+}
+
+.main > * {
+    box-sizing: border-box;
+    padding: 25px;
+}
+
+.main > * > h1 {
+    font-size: 16px;
+}
+
+.main .projects {
+    grid-row: 1 / 3;
+}
+
+.main .projects ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 25px;
+}
+
+.main .projects ul li {
+    background: grey;
+    height: 250px;
+}
+
+.main > :not(.projects) {
+    grid-column: 2;
 }
