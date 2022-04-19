@@ -257,7 +257,7 @@ body {
     grid-area: main;
 
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 7fr 3fr;
     overflow: scroll;
 }
 
@@ -290,7 +290,7 @@ body {
 .main .projects ul {
     display: grid;
     list-style: none;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 25px;
 }
 
@@ -321,6 +321,16 @@ body {
 
 .main .projects ul li p {
     font-size: 16px;
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 7;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .main .projects ul li .widget {
@@ -338,7 +348,6 @@ body {
 .main .side {
     grid-column: 2;
     display: grid;
-    grid-template-rows: 1fr 1fr;
     gap: var(--header-spacing);
 }
 
@@ -350,6 +359,7 @@ body {
 
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto  ;
 }
 
 .main .side .card div {
