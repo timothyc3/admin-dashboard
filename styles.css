@@ -168,7 +168,8 @@ body {
 }
 
 .header .login-widget img,
-.header .profile img {
+.header .profile img,
+.main .side .trending img{
     box-sizing: border-box;
     height: auto;
     width: 50px;
@@ -349,7 +350,7 @@ body {
     gap: var(--header-spacing);
 }
 
-.main .side .card {
+.main .side .announcements .card {
     box-sizing: border-box;
     background-color: white;
     width: 100%;
@@ -360,27 +361,63 @@ body {
     flex: 1 1 auto  ;
 }
 
-.main .side .card div {
+.main .side .announcements .card div {
     box-sizing: border-box;
     padding: 5% 0;
 }
 
-.main .side .card div:first-child {
+.main .side .announcements .card div:first-child {
     padding-bottom: 5%;
     padding-top: 0;
 }
 
-.main .side .card div:last-child {
+.main .side .announcements .card div:last-child {
     padding-bottom: 0;
     padding-top: 5%;
 }
 
-.main .side .card div:not(:last-child) {
+.main .side .announcements .card div:not(:last-child) {
     border-bottom: 2px solid lightgrey;
 }
 
-.main .side .card div > h2 {
+.main .side .announcements .card div > h2 {
     font-size: var(--content-heading-font-size);
     font-weight: bold;
     padding-bottom: 10px;
+}
+
+.main .side .trending .card {
+    padding: 10%;
+}
+
+.main .side .trending .card div {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    min-height: 50px;
+}
+
+.main .side .trending .card div:not(:last-child) {
+    margin-bottom: 10%;
+}
+
+.main .side .trending .card div img {
+    width: 50px;
+}
+
+.main .side .trending .card div :not(img) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.main .side .trending .card div > h2 {
+    font-size: var(--content-heading-font-size);
+    display: inline-block;
+    margin: auto 0;
+    padding-left: 10px;
+}
+
+.main .side .trending .card div > h2 > span {
+    font-size: var(--content-heading-font-size);
+    color: dimgrey;
 }
