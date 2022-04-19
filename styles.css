@@ -226,9 +226,30 @@ body {
 
 .header .button-panel {
     grid-area: button-panel;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.header .button-panel ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.header .button-panel ul li {
+    background-color: cornflowerblue;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
 }
 
 .main {
-    background: white;
+    background: #dee0de;
     grid-area: main;
 }
