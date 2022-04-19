@@ -243,7 +243,7 @@ body {
 }
 
 .header .button-panel ul li {
-    background-color: cornflowerblue;
+    background-color: #0D002B;
     padding: 10px clamp(20px, 2vw ,30px);
     border-radius: 10px;
     color: white;
@@ -265,7 +265,16 @@ body {
 }
 
 .main > * > h1 {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.main .card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 5px 10px 10px -12px black;
 }
 
 .main .projects {
@@ -281,9 +290,6 @@ body {
 
 .main .projects ul li {
     box-sizing: border-box;
-    position: relative;
-    background: white;
-    border-radius: 15px;
     height: 250px;
     padding: 25px 25px 0 25px;
     overflow: hidden;
@@ -313,9 +319,10 @@ body {
 
 .main .projects ul li .widget {
     display: flex;
+    box-sizing: border-box;
     justify-content: end;
     align-items: end;
-    padding: 10px;
+    padding-bottom: clamp(10px, 5% ,40px);
     flex: 1;
     min-height: 25px;
     font-size: 24px;
@@ -324,4 +331,11 @@ body {
 
 .main > :not(.projects) {
     grid-column: 2;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.main > :not(.projects) > .card {
+    background-color: white;
+    width: 100%;
 }
