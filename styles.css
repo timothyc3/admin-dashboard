@@ -251,6 +251,8 @@ body {
 }
 
 .main {
+    --header-spacing: 20px ;
+
     background: #dee0de;
     grid-area: main;
 
@@ -264,10 +266,14 @@ body {
     padding: 25px;
 }
 
-.main > * > h1 {
+.main p {
+    color: dimgrey;
+}
+
+.main .section-header {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: var(--header-spacing);
 }
 
 .main .card {
@@ -329,13 +335,57 @@ body {
     gap: 5%;
 }
 
-.main > :not(.projects) {
+.main .side {
     grid-column: 2;
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--header-spacing);
 }
 
-.main > :not(.projects) > .card {
+.main .side .card {
+    box-sizing: border-box;
     background-color: white;
     width: 100%;
+    padding: 10%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main .side .card div {
+    box-sizing: border-box;
+    padding: 5% 0;
+}
+
+.main .side .card div:first-child {
+    padding-bottom: 5%;
+    padding-top: 0;
+}
+
+.main .side .card div:last-child {
+    padding-bottom: 0;
+    padding-top: 5%;
+}
+
+.main .side .card div:not(:last-child) {
+    border-bottom: 2px solid lightgrey;
+}
+
+.main .side .card div > h2 {
+    font-size: clamp(16px, 1vw, 24px);
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.main .side .card div > p {
+    font-size: clamp(12px, 1vw, 18px);
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 5;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
