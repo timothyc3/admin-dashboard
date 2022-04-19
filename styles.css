@@ -255,7 +255,7 @@ body {
     grid-area: main;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
     overflow: scroll;
 }
 
@@ -280,8 +280,46 @@ body {
 }
 
 .main .projects ul li {
-    background: grey;
+    box-sizing: border-box;
+    position: relative;
+    background: white;
+    border-radius: 15px;
     height: 250px;
+    padding: 25px 25px 0 25px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main .projects ul li span {
+    height: inherit;
+    width: 10px;
+    background: darkorange;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.main .projects ul li h2 {
+    color: black;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.main .projects ul li p {
+    font-size: 16px;
+}
+
+.main .projects ul li .widget {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 10px;
+    flex: 1;
+    min-height: 25px;
+    font-size: 24px;
+    gap: 5%;
 }
 
 .main > :not(.projects) {
