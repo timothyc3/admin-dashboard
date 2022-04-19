@@ -178,7 +178,7 @@ body {
 }
 
 .header .login-widget img {
-    width: 40px
+    width: 45px
 }
 
 .header .login-widget h1 {
@@ -251,7 +251,9 @@ body {
 }
 
 .main {
-    --header-spacing: 20px ;
+    --header-spacing: 20px;
+    --content-font-size: clamp(12px, 1vw, 18px);
+    --content-heading-font-size: clamp(16px, 1vw, 24px);
 
     background: #dee0de;
     grid-area: main;
@@ -268,6 +270,16 @@ body {
 
 .main p {
     color: dimgrey;
+    font-size: var(--content-font-size);
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 5;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main .section-header {
@@ -316,21 +328,7 @@ body {
 .main .projects ul li h2 {
     color: black;
     padding-bottom: 10px;
-    font-size: 16px;
-}
-
-.main .projects ul li p {
-    font-size: 16px;
-    display: -webkit-box;
-    max-width: 100%;
-    margin: 0 auto;
-    -webkit-line-clamp: 7;
-    /* autoprefixer: off */
-    -webkit-box-orient: vertical;
-    /* autoprefixer: on */
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+    font-size: var(--content-heading-font-size);
 }
 
 .main .projects ul li .widget {
@@ -382,20 +380,7 @@ body {
 }
 
 .main .side .card div > h2 {
-    font-size: clamp(16px, 1vw, 24px);
+    font-size: var(--content-heading-font-size);
     font-weight: bold;
     padding-bottom: 10px;
-}
-
-.main .side .card div > p {
-    font-size: clamp(12px, 1vw, 18px);
-    display: -webkit-box;
-    max-width: 100%;
-    margin: 0 auto;
-    -webkit-line-clamp: 5;
-    /* autoprefixer: off */
-    -webkit-box-orient: vertical;
-    /* autoprefixer: on */
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
