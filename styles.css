@@ -418,6 +418,6 @@ body {
 }
 
 .main .side .trending .card div > h2 > span {
-    font-size: var(--content-heading-font-size);
+    font-size: var(--content-font-size);
     color: dimgrey;
 }
